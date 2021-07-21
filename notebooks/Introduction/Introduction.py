@@ -16,7 +16,6 @@
 # %% [markdown]
 # Figures from Chapter "Introduction" of Poldrack et al., Handbook of fMRI Data Analysis
 
-
 # %% jupyter={"outputs_hidden": false}
 import numpy as np
 import pandas as pd

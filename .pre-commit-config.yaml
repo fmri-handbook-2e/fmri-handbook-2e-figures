@@ -3,7 +3,7 @@ repos:
     rev: v1.11.4  # CURRENT_TAG/COMMIT_HASH
     hooks:
     - id: jupytext
-      args: [--from, ipynb, --to, "py:percent"]
+      args: [--sync]
 -   repo: https://gitlab.com/pycqa/flake8
     rev: 3.9.2
     hooks:

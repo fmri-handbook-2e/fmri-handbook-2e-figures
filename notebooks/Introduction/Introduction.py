@@ -42,7 +42,7 @@ if not os.path.exists(config.figure_dir):
     os.makedirs(config.figure_dir)
 
 # %% [markdown]
-# 
+#
 # # Figure 1: Pubmed hits for fMRI
 # ## Get counts of pubmed hits by year
 

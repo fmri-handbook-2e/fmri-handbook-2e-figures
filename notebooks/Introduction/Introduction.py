@@ -14,7 +14,7 @@
 # ---
 
 # %% [markdown]
-# Figures from Chapter "Introduction" of Poldrack et al., Handbook of fMRI Data Analysis
+# Figures from Chapter "Introduction" of Poldrack et al., Handbook of fMRI Data Analysis, Second Edition (tentative)
 
 # %% jupyter={"outputs_hidden": false}
 import numpy as np

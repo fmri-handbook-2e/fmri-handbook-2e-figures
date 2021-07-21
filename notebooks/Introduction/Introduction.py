@@ -105,7 +105,7 @@ hitsDf.to_csv(
 
 # %% jupyter={"outputs_hidden": false}
 
-data = scipy.io.loadmat(os.path.join(config.data_dir, 'forRuss.mat'))
+data = scipy.io.loadmat(os.path.join(config.data_dir, 'hrf_data.mat'))
 hrfdata = data['allmnresps']
 timepoints = np.arange(0, 16, 0.25)
 
@@ -115,3 +115,5 @@ plt.ylabel('% change in BOLD signal', fontsize=18)
 plt.xlabel('Peristimulus time (secs)', fontsize=18)
 
 savefig(fig, 'hrf', config)
+
+# %%

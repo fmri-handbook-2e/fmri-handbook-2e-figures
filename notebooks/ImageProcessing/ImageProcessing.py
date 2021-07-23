@@ -42,6 +42,7 @@ repo_path = repo.git.rev_parse("--show-toplevel")
 sys.path.append(repo_path)
 
 from fmrihandbook.utils.config import get_config  # noqa: E402
+from fmrihandbook.utils.figures import savefig  # noqa: E402
 
 config = get_config(nbfile=__file__)
 if not os.path.exists(config.figure_dir):
@@ -157,7 +158,7 @@ for x in range(16):
 
 
 # %%
-plt.figure(figsize=(12, 12))
+fig = plt.figure(figsize=(12, 12))
 plt.subplot(2, 2, 1)
 show_coords(coords, coords_translated, "Translation")
 plt.subplot(2, 2, 2)
@@ -167,16 +168,14 @@ show_coords(coords, coords_scaled, "Scaling", plot_lines=True)
 plt.subplot(2, 2, 4)
 show_coords(coords, coords_sheared, "Shearing", plot_lines=True)
 
-plt.savefig(
-    os.path.join(config.figuredir, "Figure_2_3." + config.img_format),
-    format=config.img_format,
-    dpi=1200,
-)
+savefig(fig, 'transforms', config)
 
 
 # %% [markdown]
 # __Figure 2.4__: Examples of different types of MRI images
 
+# TODO: replace with nilearn, create separate fucntions to do all of this
+# from scratch
 # %%
 slicenum = 150
 t1bcdata = nibabel.load(config.data["T1_bc"]).get_data()
@@ -318,10 +317,10 @@ def calc_MI(x, y, bins=25):
     import sklearn.metrics
 
     c_xy = np.histogram2d(x, y, bins)[0]
-    mi = sklearn.metrics.mutual_info_score(None, None, contingency=c_xy)
-    return mi
+    return sklearn.metrics.mutual_info_score(None, None, contingency=c_xy)
 
 
+# sourcery skip: convert-to-enumerate
 vmin = 0.999999
 
 jointhist, x, y = np.histogram2d(t1data, t2data, bins=100, normed=True)
